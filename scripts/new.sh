@@ -3,14 +3,14 @@ read link;
 # Parse text (I know this is awful but I couldn't figure out a more universal way)
 regex="((http)?s?(://)?jutge.org/problems/)?([A-Z]\d{5})_(\w\w)";
 echo $link | grep -Eo $regex>"./.match.jutge"
-tail -n +3 "./.match.jutge"
-if [-z "./.match.jutge"];
-  do
+tail -n +3 "./.match.jutge";
+if test -z ${cat "./.match.jutge"});
+then
     echo "Error: Provided text wasn't a valid jutge.org problem"
     exit;
-  fi
-{read name; read language}<"./.match.jutge"
-  
+fi
+{read name; read language}<${"./.match.jutge"};
+rm "./.match.jutge" 
 link="https://jutge.org/problems/$name_$language";
 echo "Creating files for '$link'"
 
@@ -24,7 +24,7 @@ mv "./samples/problem.pdf" "./problem.pdf"
 mv "./samples/problem.ps" "./problem.ps"
 cp "../jutge/template-main.cpp" "./main.cpp"
 if test -d "../.jutge/use-git";
-do 
+then
   echo Git: Initiating Git repository 
   git init -q
   git add * -q 
