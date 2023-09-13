@@ -1,7 +1,7 @@
 echo "Jutge Problem URI (i.e P92613, https://jutge.org/problems/P92613_en, etc)";
 read problem;
-regex = "(?:(?:http)?s?(?:://)?jutge.org/problems/)?([A-Z]\d{5})_(\w\w)";
-if [[$link =~ $regex]];
+regex="(?:(?:http)?s?(?:://)?jutge.org/problems/)?([A-Z]\d{5})_(\w\w)";
+if [[ $link =~ $regex ]];
 then 
   name=${BASH_REMATCH[1]};
   language=${BASH_REMATCH[2]};
