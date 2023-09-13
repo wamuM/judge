@@ -18,14 +18,14 @@ do
    let "i++"
 done
 # Creating directory 
-mkdir .judge
-cp "./scripts/check-samples.sh" "./.judge/check-samples.sh"
-cp "./scripts/template-main.cpp" "./.judge/template-main.cpp"
+mkdir .jutge
+cp "./scripts/check-samples.sh" "./.jutge/check-samples.sh"
+cp "./scripts/template-main.cpp" "./.jutge/template-main.cpp"
 # Settings 
 read -p "Do you want to automatically init git in every problem (recommended)?[Y/n]" shouldGit
 case $shouldGit in 
   [Nn]* ) rem; break;;
-  * ) touch "./.judge/use-git";;
+  * ) touch "./.jutge/use-git";;
 esac 
 # Clear afterwards
 read -p "Do you want to clear the instalation files (recomended)[Y/n]?" shouldClear
@@ -37,5 +37,5 @@ rm -r ./scripts/
 rm init.sh 
 rm -r "./.git" 
 rm README.md 
-rm LICENSE.md
+rm LICENSE
 echo Instalation Completed!
