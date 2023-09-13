@@ -8,7 +8,7 @@ echo ""
 echo "================================="
 echo CC-BY-SA wamu_M 2023
 # Create PN folders
-echo "Number of parts i.e P1,P2,P3,P4 (starts at 0)"
+echo "ID of the last part (i.e for P0,P1,P2,P3,P4 it would be 4)"
 read parts; 
 i=0;
 while [$i -le $parts]
