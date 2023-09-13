@@ -3,8 +3,8 @@ read problem;
 regex = "(?:(?:http)?s?(?:://)?jutge.org/problems/)?([A-Z]\d{5})_(\w\w)";
 if [[$link =~ $regex]];
 then 
-  name = ${BASH_REMATCH[1]};
-  language = ${BASH_REMATCH[2]};
+  name=${BASH_REMATCH[1]};
+  language=${BASH_REMATCH[2]};
 else 
   echo "Error: Provided text wasn't a valid jutge.org problem";
   exit;
