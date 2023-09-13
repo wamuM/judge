@@ -11,7 +11,7 @@ echo CC-BY-SA wamu_M 2023
 echo "ID of the last part (i.e for P0,P1,P2,P3,P4 it would be 4)"
 read parts; 
 i=0;
-while [$i -le $parts]
+while [$i -le $parts];
 do 
    mkdir "P$i"
    cp "./scripts/new.sh" "./P$i/new.sh"
@@ -35,7 +35,7 @@ case $shouldClear in
 esac 
 rm -r ./scripts/ 
 rm init.sh 
-rm -r "./.git" 
+rm -rf "./.git" 
 rm README.md 
 rm LICENSE
 echo Instalation Completed!
