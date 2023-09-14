@@ -1,5 +1,7 @@
-echo "Jutge Problem URI (i.e P92613, https://jutge.org/problems/P92613_en, etc)";
-read link;
+#!/bin/bash
+
+echo "Enter a Jutge Problem URI (i.e P92613, https://jutge.org/problems/P92613_en, etc):";
+read -p "#? " link;
 # Parse text (I know this is awful but I couldn't figure out a more universal way)
 regex='^((https?://)?jutge\.org/problems/)?([[:upper:]][[:digit:]]{5})_([[:lower:]][[:lower:]])';
 if [[ $link =~ $regex ]];
@@ -11,12 +13,12 @@ else
     exit 1;
 fi
 link="https://jutge.org/problems/${name}_${language}";
-echo "Generating files for ${name} (lang ${language})"
+echo "[=] Generating files for ${name} (lang ${language})"
 
 # Creating files 
 mkdir "./$name" || exit 1;
 cd "./$name" || exit 1;
-echo "Downloading files from jutge..."
+echo "[=] Downloading files from jutge..."
 if test -f "../../.jutge/verbose";
 then 
  wget -O "jutge.zip" "${link}/zip"
@@ -39,3 +41,4 @@ then
   echo "Git: Commiting initial state..."
   git commit -m "Automatic First Commit by the Jutge Manager Script"
 fi 
+echo "[+] Problem ${name} succesfully added!"

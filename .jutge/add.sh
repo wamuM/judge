@@ -1,13 +1,16 @@
+#!/bin/bash 
 
 echo "Adding another part..."
 max=0
 for dir in ./P*/ 
-do 
+do
+  echo $dir;
   if [[ $dir =~ \./P([[:digit:]]*)/ ]];
   then
-    if "${BASH_REMATCH[1]}" > $max;
+    index="${BASH_REMATCH[1]}"
+    if [ "$index" -gt "$max" ];
     then 
-      max="${BASH_REMATCH[1]}";
+      max="$index";
     fi
   fi 
 done 
