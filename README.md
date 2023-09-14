@@ -18,6 +18,6 @@ To properly run the scripts one should have installed
 (most linux distros have them by default, if not you can very easily google how to install them or check if you have them)
 ## Installation 
 #### 1- Clone Repository 
-Clone this repository into your computer by doing `git clone -o git@github:wamuM/jutge-enviroment <directory>` (where directory is where you want everything to be, for instance `PRO1`)
+Clone this repository into your computer by doing `git clone -o git@github.com:wamuM/jutge-enviroment <directory>` (where directory is where you want everything to be, for instance `PRO1`)
 #### 2- Run install.sh 
 `cd <directory>` into the clonned repository and execute install.sh by doing `bash install.sh`
