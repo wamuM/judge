@@ -57,7 +57,7 @@ case $config in
 esac; 
 done;
 echo ""
-echo "Starting installation..."
+echo "[=] Starting installation..."
 mv "./.jutge/add.sh" "./add.sh"
 i=0;
 while test $i -le $parts;
