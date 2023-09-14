@@ -25,7 +25,7 @@ cp "../../.jutge/check-samples.sh" "./check-samples.sh"
 mv "./samples/problem.pdf" "./problem.pdf"
 mv "./samples/problem.ps" "./problem.ps"
 cp "../../.jutge/template-main.cpp" "./main.cpp"
-if test -d "../../.jutge/use-git";
+if test -f "../../.jutge/use-git";
 then
   echo "Git: Initiating Git repository..." 
   git init -q
