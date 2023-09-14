@@ -60,7 +60,7 @@ echo ""
 echo "[=] Starting installation..."
 mv "./.jutge/add.sh" "./add.sh"
 i=0;
-while test $i -le $parts;
+while test $i -lt $parts;
 do 
    mkdir "P$i"
    cp "./.jutge/new.sh" "./P$i/new.sh"
