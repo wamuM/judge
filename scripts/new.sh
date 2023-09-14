@@ -1,13 +1,11 @@
 echo "Jutge Problem URI (i.e P92613, https://jutge.org/problems/P92613_en, etc)";
 read link;
 # Parse text (I know this is awful but I couldn't figure out a more universal way)
-regex='((http)?s?(://)?jutge.org/problems/)?([:upper:][:digit:]{5})_([:lower:][:lower:])';
-echo $link | grep -Eo $regex>"./.match.jutge"
-tail -n +3 "./.match.jutge";
-if [[ $link=~ $regex]]; 
+regex='^((https?://)?jutge\.org/problems/)?([[:upper:]][[:digit:]]{5})_([[:lower:]][[:lower:]])';
+if [[ $link =~ $regex ]];
 then 
-  name=$(BASH_REMATCH[4]);
-  language=$(BASH_REMATCH[5]);
+  name="${BASH_REMATCH[4]}";
+  language="${BASH_REMATCH[5]}";
 else
     echo "Error: Provided text wasn't a valid jutge.org problem";
     exit 1;
