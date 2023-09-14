@@ -4,14 +4,12 @@ read link;
 regex='^((https?://)?jutge\.org/problems/)?([[:upper:]][[:digit:]]{5})_([[:lower:]][[:lower:]])';
 if [[ $link =~ $regex ]];
 then 
-  name="${BASH_REMATCH[4]}";
-  language="${BASH_REMATCH[5]}";
+  name="${BASH_REMATCH[5]}";
+  language="${BASH_REMATCH[6]}";
 else
     echo "Error: Provided text wasn't a valid jutge.org problem";
     exit 1;
 fi
-{read name; read language}<${"./.match.jutge"};
-rm "./.match.jutge" 
 link="https://jutge.org/problems/${name}_${language}";
 echo "Creating files for '$link'"
 
