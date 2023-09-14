@@ -17,8 +17,14 @@ echo "Generating files for ${name} (lang ${language})"
 mkdir "./$name" || exit 1;
 cd "./$name" || exit 1;
 echo "Downloading files from jutge..."
-wget -O "jutge.zip" "${link}/zip"
-unzip "jutge.zip" -d .
+if test -f "../../.jutge/verbose";
+then 
+ wget -O "jutge.zip" "${link}/zip"
+ unzip "jutge.zip" -d . 
+else 
+ wget -q -O "jutge.zip" "${link}/zip"
+ unzip -q "jutge.zip" -d .
+fi 
 rm "jutge.zip"
 mv "./${name}_${language}" "./samples"
 cp "../../.jutge/check-samples.sh" "./check-samples.sh"
@@ -28,8 +34,8 @@ cp "../../.jutge/template-main.cpp" "./main.cpp"
 if test -f "../../.jutge/use-git";
 then
   echo "Git: Initiating Git repository..." 
-  git init -q
-  git add * -q 
+  git init
+  git add *
   echo "Git: Commiting initial state..."
-  git commit -q -m "Automatic First Commit by the Jutge Manager Script"
+  git commit -m "Automatic First Commit by the Jutge Manager Script"
 fi 
