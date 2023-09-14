@@ -4,8 +4,8 @@ read link;
 regex='^((https?://)?jutge\.org/problems/)?([[:upper:]][[:digit:]]{5})_([[:lower:]][[:lower:]])';
 if [[ $link =~ $regex ]];
 then 
-  name="${BASH_REMATCH[5]}";
-  language="${BASH_REMATCH[6]}";
+  name="${BASH_REMATCH[3]}";
+  language="${BASH_REMATCH[4]}";
 else
     echo "Error: Provided text wasn't a valid jutge.org problem";
     exit 1;
