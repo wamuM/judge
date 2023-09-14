@@ -70,6 +70,7 @@ done
 if fetchConfig "clear-install";
 then 
 echo "[+] Installation files cleared"
-rm -r install.sh LICENSE README.md "./.jutge/clear-install" 
+rm install.sh LICENSE README.md "./.jutge/clear-install"
+rm -rf "./.git/" 
 fi 
 echo "[+] Installation Completed!"
