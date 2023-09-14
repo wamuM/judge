@@ -11,14 +11,15 @@ else
     exit 1;
 fi
 link="https://jutge.org/problems/${name}_${language}";
-echo "Creating files for '$link'"
+echo "Generating files for ${name} (lang ${language})"
 
 # Creating files 
 mkdir "./$name" || exit 1;
 cd "./$name" || exit 1;
 echo "Downloading files from jutge..."
-wget -O "jutge.zip" $link
-unzip "jutge.zip" -d ./samples
+wget -O "jutge.zip" "${link}/zip"
+unzip "jutge.zip" -d .
+mv "./${name}_${language}" "./samples"
 cp "../.jutge/check-samples.sh" "./check-samples.sh"
 mv "./samples/problem.pdf" "./problem.pdf"
 mv "./samples/problem.ps" "./problem.ps"
