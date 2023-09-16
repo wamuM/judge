@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Enter a Jutge Problem URI (i.e P92613, https://jutge.org/problems/P92613_en, etc):";
+echo "Enter a Jutge Problem URI (i.e P92613_en, https://jutge.org/problems/P92613_en, etc):";
 read -p "#? " link;
 # Parse text (I know this is awful but I couldn't figure out a more universal way)
 regex='^((https?://)?jutge\.org/problems/)?([[:upper:]][[:digit:]]{5})_([[:lower:]][[:lower:]])';
