@@ -9,7 +9,11 @@ When installing, this code creates a folder for every part of your course and pu
 Inside a Part folder, the `new.sh` can be used to quickly create a folder for a jutge.org problem. It also downloads a pdf explaining the problem and all of the public tests in the `./PN/PXXXXX/samples` directory.
 Moreover it creates a `check-samples.sh` that when executed checks if the compiled code passes those tests. 
 ### Git
-When installing or by adding/removing the './judge/use-git' file you can configure the jutge enviroment script so it automatically inits git in every problem's repository for version control. 
+You can configure the jutge enviroment script so it automatically inits git in every problem's repository for version control. 
+### Exports
+Puts the most recent main.cpp file to have passed the check-samples.sh into the main directory with the name `export.cpp` to easily upload it to jutge.org 
+### Settings Manager
+Run `bash settings.sh` in the main directory to open the setting manager script. 
 ## Requirements
 To properly run the scripts one should have installed
 - git 
