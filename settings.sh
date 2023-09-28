@@ -1,4 +1,4 @@
-#!/bin/sh  
+#!/bin/sh 
 
 function fetchConfig(){
   test -f "./.jutge/$1" && return 0 ||  return 1;
@@ -19,28 +19,22 @@ echo ""
 echo "     W e l c o m e    T o"
 echo "             T h e           "
 echo " J u t g e    E n v i r o m e n t"
-echo "      I n s t a l l e r"
+echo "          S e t t i n g s"
 echo ""
 echo "================================="
 echo "CC-BY-SA wamu_M 2023"
-
-shouldInstall="no";
-parts=1;
 
 while true;
 do
 echo ""
 echo "Select an option:"
 shouldGit=$(fetchConfig "use-git" && echo "Yes" || echo "No (Default)");
-shouldClear=$(fetchConfig "clear-install" && echo "Yes (Default)" || echo "No");
 shouldVerbose=$(fetchConfig "verbose" && echo "Yes (Default)" || echo "No");
 shouldExport=$(fetchConfig "export" && echo "Yes (Default)" || echo "No")
 echo "g) Automatically initialize Git in Problem Folders? ${shouldGit}"; 
-echo "c) Clear installation files when done? ${shouldClear}"; 
 echo "v) Have unzip and wget be verbose? ${shouldVerbose}"; 
 echo "e) Copy main.cpp into export.cpp to easily upload to jutge.org? ${shouldExport}"
-echo "p) Number of parts: ${parts}";
-echo "i) [install] Proceed with installation";
+echo "q) [quit] Quit settings manager";
 read -p "#? " config
 case $config in 
   "g") toggleFile "use-git";
@@ -51,30 +45,10 @@ case $config in
     ;;
   "e") toggleFile "export";
     ;;
-  "p") read -p "How many parts do you want? " parts;
-    ;;
-  "i") break;
+  "q") break;
     ;;
   *)
     echo "Please select a valid config option:";
     ;;
 esac; 
-done;
-echo ""
-echo "[=] Starting installation..."
-mv "./.jutge/add.sh" "./add.sh"
-i=0;
-while test $i -lt $parts;
-do 
-    mkdir "P$i"
-   cp "./.jutge/new.sh" "./P$i/new.sh"
-   let "i++"
-done
-
-if fetchConfig "clear-install";
-then 
-echo "[+] Installation files cleared"
-rm install.sh LICENSE README.md "./.jutge/clear-install" "./update.sh"
-rm -rf "./.git/" 
-fi 
-echo "[+] Installation Completed!"
+done; 

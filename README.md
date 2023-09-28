@@ -21,3 +21,8 @@ To properly run the scripts one should have installed
 Clone this repository into your computer by doing `git clone https://github.com/wamuM/jutge-enviroment <directory>` (where directory is where you want everything to be, for instance `PRO1`)
 #### 2- Run install.sh 
 `cd <directory>` into the clonned repository and execute install.sh by doing `bash install.sh`
+## Updating 
+### 1- Clone Updated Repository 
+Clone this repository into your computer (**not the same directory as the not updated one**) by doing `git clone https://github.com/wamuM/jutge-enviroment <directory>` (where directory is where you want everything to be for instance `UPDATE_PRO1`) 
+### 2 - Run update.sh 
+`cd <directory>` into the clonned repository and execute install.sh by doing `bash update.sh`
